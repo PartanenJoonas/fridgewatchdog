@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/liststyle.css') }}" />
+      <title>Jääkaappivahti</title>
+   </head>
+   
+   <body>
+      <h1 id="header">
+         Jääkaappivahti 
+      </h2>
+      <br>
+      
+      <div id="div1">
+         Jääkaapin lämpötila viimeisen X ajalta
+         <br>
+      </div>
+      <table class="center" table border = 1>
+            
+            <thead>
+               <td>Mittausaika</td>
+               <td>Viimeisin lämpötila °C</td>
+            </thead>
+         
+            {% for row in rows %}
+               <tr>
+                  <td>{{ row [1] }}</td>
+                  <td>{{ row [2] }}</td>	
+               </tr>
+            {% endfor %}
+      </table>
+      <br/>
+      </div>
+      <a href = "/"><input class="button" type ="button" value="Palaa etusivulle"></a>
+   </body>
+   
+</html>

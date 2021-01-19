@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Cache-control" content="no-cache">  
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/indexstyle.css') }}" />
+<title>Jääkaappivahti</title>
+</head>
+
+
+<body>
+
+
+<h1 id="header1">Jääkaappivahti</h1>
+
+
+
+<h2 id="header2">Kuva jääkaapista {aikaleimatähän}</h2>
+
+<div id="image">
+<img src="{{url_for('static', filename='jaakaappi.jpeg')}}"class="image"/>
+<meta http-equiv="refresh" content="10">
+<br/>
+</div>
+
+<button class="button" type = "button" onclick="window.location.reload()">
+Päivitä </button>
+
+<h2 style="color:blue; text-align:center;">Jääkaapin lämpötila </h2>
+
+	<div id="lämpö">
+	<table class="table" table border = 1>
+            
+            <thead>
+               <td>Mittausaika</td>
+               <td>Viimeisin lämpötila °C</td>
+            </thead>
+         
+            {% for row in rows %}
+               <tr>
+                  <td>{{ row [1] }}</td>
+                  <td>{{ row [2] }}</td>	
+               </tr>
+            {% endfor %}
+      </table>
+      <br/>
+      </div>
+
+
+<a href = "/temps"><input class="button" type ="button" value="Näytä lämpötilat"></a>
+</body>
+</html>
